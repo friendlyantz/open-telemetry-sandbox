@@ -131,3 +131,9 @@ curl http://localhost:9292
 ```
 
 and query your zipkin UI, you should see the traces there
+
+<img width="858" alt="image" src="https://user-images.githubusercontent.com/70934030/228786848-b2db79bd-84d4-4d27-b25b-7402e92d186b.png">
+
+<img width="859" alt="image" src="https://user-images.githubusercontent.com/70934030/228786966-4f7e739e-9a1b-4c18-9c3d-bdce7ca3b254.png">
+
+
