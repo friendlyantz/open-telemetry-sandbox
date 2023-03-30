@@ -1,11 +1,11 @@
-* [Refer this page for a nicer WEB view](https://friendlyantz.github.io/open-telemetry-sandbox/)
+* [ℹ️Refer this page for a nicer WEB view of this readme](https://friendlyantz.github.io/open-telemetry-sandbox/)
 {:toc}
 
 # Action Plan
 This is my sandbox to test and learn [OpenTelemetry(OTM)](<https://opentelemetry.io>) within Ruby ecosystem.
 - [x] I start with elementary Rack app and add OpenTelemetry instrumentation to it.
-- [x] Then spicy it up with Zipkin as a tracing backend(Java☕️)
-- [x] May be spicy it up with [Jeeger](https://github.com/jaegertracing/jaeger) as an alternative tracing backend(it is in GO, and fresher)
+- [x] Then spice it up with Zipkin as a tracing backend(Java☕️)
+- [x] May be spice it up with [Jeeger](https://github.com/jaegertracing/jaeger) as an alternative tracing backend(it is in GO, and fresher)
 - [ ] Next, I will dive into misc OTM concepts such as Span, SpanContext, etc.
 - [ ] Then, may be, I will try to add OTM instrumentation to a Sinatra app.
 - [ ] Then, I will try to add OTM instrumentation to a Rails app.
@@ -99,6 +99,12 @@ curl http://localhost:9292
 ```
 
 🎉🎉🎉
+
+---
+
+# OTLP - wire protocol for OpenTelemetry (supports gRPC and HTTP over Protobu and HTTP over JSON)
+
+<img width="722" alt="image" src="https://user-images.githubusercontent.com/70934030/228970631-a3c68289-5e16-4e54-acf3-00c5f1b0180e.png">
 
 ---
 
