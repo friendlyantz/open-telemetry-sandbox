@@ -1,6 +1,7 @@
 This is my sandbox to test and learn [OpenTelemetry(OT)](<https://opentelemetry.io>) within Ruby ecosystem.
 - [x] I start with elementary Rack app and add OpenTelemetry instrumentation to it.
-- [x] Then spicy it up with Zipkin as a tracing backend.
+- [x] Then spicy it up with Zipkin as a tracing backend(Java☕️)
+- [ ] May be spicy it up with [Jeeger](https://github.com/jaegertracing/jaeger) as an alternative tracing backend(it is in GO, and fresher)
 - [ ] Next, I will dive into misc OT concepts such as Span, SpanContext, etc.
 - [ ] Then, may be, I will try to add OT instrumentation to a Sinatra app.
 - [ ] Then, I will try to add OT instrumentation to a Rails app.
@@ -138,4 +139,17 @@ and query your zipkin UI, you should see the traces there
 
 <img width="859" alt="image" src="https://user-images.githubusercontent.com/70934030/228786966-4f7e739e-9a1b-4c18-9c3d-bdce7ca3b254.png">
 
+## There are 2 types of `Context`
 
+- Span Context
+  - Trace ID
+  - Span ID
+  - Trace Flags
+  - Trace State
+
+- Correlation Context
+  - user-defined key-value pairs
+
+## Propagation
+
+Propagation is the mechanism that moves data between services and processes. Although not limited to tracing, it is what allows traces to build causal information about a system across services that are arbitrarily distributed across process and network boundaries.
