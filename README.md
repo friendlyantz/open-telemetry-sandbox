@@ -2,19 +2,19 @@
 {:toc}
 
 # Action Plan
-This is my sandbox to test and learn [OpenTelemetry(OT)](<https://opentelemetry.io>) within Ruby ecosystem.
+This is my sandbox to test and learn [OpenTelemetry(OTM)](<https://opentelemetry.io>) within Ruby ecosystem.
 - [x] I start with elementary Rack app and add OpenTelemetry instrumentation to it.
 - [x] Then spicy it up with Zipkin as a tracing backend(Java☕️)
 - [x] May be spicy it up with [Jeeger](https://github.com/jaegertracing/jaeger) as an alternative tracing backend(it is in GO, and fresher)
-- [ ] Next, I will dive into misc OT concepts such as Span, SpanContext, etc.
-- [ ] Then, may be, I will try to add OT instrumentation to a Sinatra app.
-- [ ] Then, I will try to add OT instrumentation to a Rails app.
+- [ ] Next, I will dive into misc OTM concepts such as Span, SpanContext, etc.
+- [ ] Then, may be, I will try to add OTM instrumentation to a Sinatra app.
+- [ ] Then, I will try to add OTM instrumentation to a Rails app.
 
 Useful bedtime RTFM [MELT 101](https://newrelic.com/platform/telemetry-data-101)
 
-# Steps
+# Basic steps to get us going just in the server console
 
-## Add OpenTelemetry instrumentation to the app (Rack+RackUp as an example here) - will output OT to the console
+## Add OpenTelemetry instrumentation to the app (Rack+RackUp as an example here) - will output OTM to the console
 
 ```ruby
 require 'opentelemetry/sdk'
@@ -44,7 +44,7 @@ rackup
 curl http://localhost:9292
 ```
 
-### Check the OT output in your console, should be similar to this:
+### Check the OTM output in your console, should be similar to this:
 ```bash
 #<struct OpenTelemetry::SDK::Trace::SpanData
  name="HTTP GET",
@@ -102,7 +102,7 @@ curl http://localhost:9292
 
 ---
 
-# Step up the Game with proper tracing backend (i.e. Zipkin)
+# Step up the Game with proper tracing backend (i.e. Jaeger or Zipkin)
 
 ##  Prerequisites
 
@@ -114,7 +114,8 @@ curl http://localhost:9292
 docker login
 ```
 
-## Build & Start Tracing backend (i.e. Zipkin)
+## OPT1 - Build & Start a 'Distributed Tracing backend Zipkin (but I would recommend to go with OPT2 - Jaeger)
+
 ```bash
 docker run --rm -d -p 9411:9411 --name zipkin openzipkin/zipkin
 ```
@@ -122,7 +123,7 @@ docker run --rm -d -p 9411:9411 --name zipkin openzipkin/zipkin
 this will spin up a zipkin with UI on 
 [http://localhost:9411/zipkin/](http://localhost:9411/zipkin/)
 
-## Update Gemfile/require and ENV accordingly
+### Update Gemfile/require and ENV accordingly
 
 ```ruby
 require 'opentelemetry-exporter-zipkin'
@@ -133,21 +134,21 @@ ENV['OTEL_TRACES_EXPORTER'] = 'zipkin'
 # ENV['OTEL_EXPORTER_ZIPKIN_ENDPOINT'] = 'http://localhost:1234'
 ```
 
-## `curl` the app again
+### `curl` the app again
 
 ```bash
 curl http://localhost:9292
 ```
 
-and query your zipkin UI, you should see the traces there
+and query your Zipkin UI, you should see the traces there
 
 <img width="858" alt="image" src="https://user-images.githubusercontent.com/70934030/228786848-b2db79bd-84d4-4d27-b25b-7402e92d186b.png">
 
 <img width="859" alt="image" src="https://user-images.githubusercontent.com/70934030/228786966-4f7e739e-9a1b-4c18-9c3d-bdce7ca3b254.png">
 
-# Alternative to Zipkin- [Jeeger](https://github.com/jaegertracing/jaeger) (it is in GO, and fresher then Zipkin)
+## OPT2(preferred) Alternative to Zipkin- [Jeeger](https://github.com/jaegertracing/jaeger) (it is in GO, and fresher then Zipkin)
 
-## Pour some Jeeger(meister)
+### Pour some Jeeger(meister)
 
 ```bash
 docker run -d --name jaeger \
@@ -163,7 +164,7 @@ docker run -d --name jaeger \
   jaegertracing/all-in-one
 ```
 
-## Update Gemfile/require and ENV accordingly
+### Update Gemfile/require and ENV accordingly
 
 ```ruby
 require 'opentelemetry/exporter/jaeger'
@@ -171,7 +172,7 @@ require 'opentelemetry/exporter/jaeger'
 ENV['OTEL_TRACES_EXPORTER'] = 'jaeger'
 ```
 
-## `curl` the app again
+### `curl` the app again
 
 ```bash
 curl http://localhost:9292
