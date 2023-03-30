@@ -1,6 +1,6 @@
 # Prerequisites
 
-- Docker(or Colima as a free alternative to run docker command)
+- Docker (or [Colima](https://github.com/abiosoft/colima) as a free alternative to run docker command)
 - Docker Hub account
 
 # Steps
