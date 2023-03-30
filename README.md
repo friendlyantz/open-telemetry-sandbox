@@ -1,3 +1,7 @@
+* [refer this page for a nicer view](https://friendlyantz.github.io/open-telemetry-sandbox/)
+{:toc}
+
+# Action Plan
 This is my sandbox to test and learn [OpenTelemetry(OT)](<https://opentelemetry.io>) within Ruby ecosystem.
 - [x] I start with elementary Rack app and add OpenTelemetry instrumentation to it.
 - [x] Then spicy it up with Zipkin as a tracing backend(Java☕️)
