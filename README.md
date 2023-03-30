@@ -22,3 +22,16 @@ rackup
 ```bash
 curl http://localhost:9292
 ```
+
+## 4. Add OpenTelemetry instrumentation to the app (RackUp)
+```ruby
+require 'opentelemetry/sdk'
+require 'opentelemetry/exporter/otlp'
+# require 'opentelemetry/instrumentation/all'
+require 'opentelemetry/instrumentation/rack'
+
+ENV['OTEL_TRACES_EXPORTER'] = 'console'
+OpenTelemetry::SDK.configure do |c|
+  c.use 'OpenTelemetry::Instrumentation::Rack'
+end
+```
