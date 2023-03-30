@@ -145,7 +145,7 @@ and query your zipkin UI, you should see the traces there
 
 <img width="859" alt="image" src="https://user-images.githubusercontent.com/70934030/228786966-4f7e739e-9a1b-4c18-9c3d-bdce7ca3b254.png">
 
-# Alternative to Zipkin- spicy it up with [Jeeger](https://github.com/jaegertracing/jaeger) as an alternative tracing backend(it is in GO, and fresher then Zipkin)
+# Alternative to Zipkin- [Jeeger](https://github.com/jaegertracing/jaeger) (it is in GO, and fresher then Zipkin)
 
 ## Pour some Jeeger(meister)
 
@@ -178,6 +178,11 @@ curl http://localhost:9292
 ```
 
 hunt it down via Jaeger UI like a boss
+
+![image](https://user-images.githubusercontent.com/70934030/228813650-cb7524a0-2321-43c8-a02d-f11459356f89.png)
+
+<img width="847" alt="image" src="https://user-images.githubusercontent.com/70934030/228813810-6d4030f4-54f1-4709-92a4-1b92d09a23d1.png">
+
 ---
 
 # Important concepts of Context and Propagation
