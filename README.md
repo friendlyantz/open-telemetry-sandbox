@@ -5,6 +5,8 @@ This is my sandbox to test and learn [OpenTelemetry(OT)](<https://opentelemetry.
 - [ ] Then, may be, I will try to add OT instrumentation to a Sinatra app.
 - [ ] Then, I will try to add OT instrumentation to a Rails app.
 
+Useful bedtime RTFM [MELT 101](https://newrelic.com/platform/telemetry-data-101)
+
 # Steps
 
 ## Add OpenTelemetry instrumentation to the app (Rack+RackUp as an example here) - will output OT to the console
