@@ -1,10 +1,16 @@
-# Prerequisits
+# Prerequisites
+
 - Docker(or Colima as a free alternative to run docker command)
 - Docker Hub account
 
 # Steps
-1. `docker login`
-1. Start Tracing backend (i.e. Zipkin)
+## 1. Login to Docker Hub
+```bash
+docker login
+```
+## 2. Build & Start Tracing backend (i.e. Zipkin)
 ```bash
 docker run --rm -d -p 9411:9411 --name zipkin openzipkin/zipkin
 ```
+this will spin up a zipkin with UI on 
+[http://localhost:9411/zipkin/](http://localhost:9411/zipkin/)
