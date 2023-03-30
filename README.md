@@ -1,11 +1,11 @@
-* [refer this page for a nicer view](https://friendlyantz.github.io/open-telemetry-sandbox/)
+* [Refer this page for a nicer WEB view](https://friendlyantz.github.io/open-telemetry-sandbox/)
 {:toc}
 
 # Action Plan
 This is my sandbox to test and learn [OpenTelemetry(OT)](<https://opentelemetry.io>) within Ruby ecosystem.
 - [x] I start with elementary Rack app and add OpenTelemetry instrumentation to it.
 - [x] Then spicy it up with Zipkin as a tracing backend(Java☕️)
-- [ ] May be spicy it up with [Jeeger](https://github.com/jaegertracing/jaeger) as an alternative tracing backend(it is in GO, and fresher)
+- [x] May be spicy it up with [Jeeger](https://github.com/jaegertracing/jaeger) as an alternative tracing backend(it is in GO, and fresher)
 - [ ] Next, I will dive into misc OT concepts such as Span, SpanContext, etc.
 - [ ] Then, may be, I will try to add OT instrumentation to a Sinatra app.
 - [ ] Then, I will try to add OT instrumentation to a Rails app.
@@ -147,6 +147,8 @@ and query your zipkin UI, you should see the traces there
 
 # Alternative to Zipkin- spicy it up with [Jeeger](https://github.com/jaegertracing/jaeger) as an alternative tracing backend(it is in GO, and fresher then Zipkin)
 
+## Pour some Jeeger(meister)
+
 ```bash
 docker run -d --name jaeger \
   -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
@@ -160,6 +162,25 @@ docker run -d --name jaeger \
   -p 9411:9411 \
   jaegertracing/all-in-one
 ```
+
+## Update Gemfile/require and ENV accordingly
+
+```ruby
+require 'opentelemetry/exporter/jaeger'
+
+ENV['OTEL_TRACES_EXPORTER'] = 'jaeger'
+```
+
+## `curl` the app again
+
+```bash
+curl http://localhost:9292
+```
+
+hunt it down via Jaeger UI like a boss
+---
+
+# Important concepts of Context and Propagation
 
 ## There are 2 types of `Context`
 

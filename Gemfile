@@ -14,3 +14,4 @@ gem 'opentelemetry-exporter-otlp'
 gem 'opentelemetry-instrumentation-rack'
 
 gem 'opentelemetry-exporter-zipkin'
+gem 'opentelemetry-exporter-jaeger'

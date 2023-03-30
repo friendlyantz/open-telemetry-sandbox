@@ -2,8 +2,9 @@ require 'opentelemetry/sdk'
 require 'opentelemetry/exporter/otlp'
 require 'opentelemetry/instrumentation/rack'
 require 'opentelemetry/exporter/zipkin'
+require 'opentelemetry/exporter/jaeger'
 
-ENV['OTEL_TRACES_EXPORTER'] = 'zipkin'
+ENV['OTEL_TRACES_EXPORTER'] = 'jaeger'
 OpenTelemetry::SDK.configure do |c|
   c.use 'OpenTelemetry::Instrumentation::Rack'
 end
@@ -13,5 +14,5 @@ end
 use OpenTelemetry::Instrumentation::Rack::Middlewares::TracerMiddleware
 
 run do |env|
-  [200, {}, ["Hello World"]]
+  [218, {}, ["Hello World"]]
 end
