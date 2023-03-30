@@ -18,7 +18,7 @@ Useful bedtime RTFM [MELT 101](https://newrelic.com/platform/telemetry-data-101)
 
 ```ruby
 require 'opentelemetry/sdk'
-require 'opentelemetry/exporter/otlp'
+require 'opentelemetry/exporter/otlp' # this is optional, if you want to use OTLP exporter, can be Zipkin, Jager, etc I believe
 # require 'opentelemetry/instrumentation/all'
 require 'opentelemetry/instrumentation/rack'
 
@@ -122,9 +122,11 @@ docker run --rm -d -p 9411:9411 --name zipkin openzipkin/zipkin
 this will spin up a zipkin with UI on 
 [http://localhost:9411/zipkin/](http://localhost:9411/zipkin/)
 
-## Update ENV accordingly
+## Update Gemfile/require and ENV accordingly
 
 ```ruby
+require 'opentelemetry-exporter-zipkin'
+# ....
 ENV['OTEL_TRACES_EXPORTER'] = 'zipkin'
 
 # if you want a custom endpoint
@@ -142,6 +144,22 @@ and query your zipkin UI, you should see the traces there
 <img width="858" alt="image" src="https://user-images.githubusercontent.com/70934030/228786848-b2db79bd-84d4-4d27-b25b-7402e92d186b.png">
 
 <img width="859" alt="image" src="https://user-images.githubusercontent.com/70934030/228786966-4f7e739e-9a1b-4c18-9c3d-bdce7ca3b254.png">
+
+# Alternative to Zipkin- spicy it up with [Jeeger](https://github.com/jaegertracing/jaeger) as an alternative tracing backend(it is in GO, and fresher then Zipkin)
+
+```bash
+docker run -d --name jaeger \
+  -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
+  -p 5775:5775/udp \
+  -p 6831:6831/udp \
+  -p 6832:6832/udp \
+  -p 5778:5778 \
+  -p 16686:16686 \
+  -p 14268:14268 \
+  -p 14250:14250 \
+  -p 9411:9411 \
+  jaegertracing/all-in-one
+```
 
 ## There are 2 types of `Context`
 
