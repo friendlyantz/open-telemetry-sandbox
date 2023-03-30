@@ -12,3 +12,5 @@ gem 'opentelemetry-sdk'
 gem 'opentelemetry-exporter-otlp'
 # gem 'opentelemetry-instrumentation-all'
 gem 'opentelemetry-instrumentation-rack'
+
+gem 'opentelemetry-exporter-zipkin'

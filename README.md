@@ -1,11 +1,6 @@
-# Prerequisites
-
-- Docker (or [Colima](https://github.com/abiosoft/colima) as a free alternative to run docker command)
-- Docker Hub account
-
 # Steps
 
-## Add OpenTelemetry instrumentation to the app (RackUp)
+## Add OpenTelemetry instrumentation to the app (Rack+RackUp as an example here) - will output OT to the console
 
 ```ruby
 require 'opentelemetry/sdk'
@@ -34,6 +29,8 @@ rackup
 ```bash
 curl http://localhost:9292
 ```
+
+### Check the OT output in your console, should be similar to this:
 ```bash
 #<struct OpenTelemetry::SDK::Trace::SpanData
  name="HTTP GET",
@@ -91,15 +88,39 @@ curl http://localhost:9292
 
 ---
 
+# Step up the Game with proper tracing backend (i.e. Zipkin)
+
+##  Prerequisites
+
+- Docker (or [Colima](https://github.com/abiosoft/colima) as a free alternative to run docker command)
+- Docker Hub account
+
 ## Login to Docker Hub
 ```bash
 docker login
 ```
+
 ## Build & Start Tracing backend (i.e. Zipkin)
 ```bash
 docker run --rm -d -p 9411:9411 --name zipkin openzipkin/zipkin
 ```
+
 this will spin up a zipkin with UI on 
 [http://localhost:9411/zipkin/](http://localhost:9411/zipkin/)
 
----
+## Update ENV accordingly
+
+```ruby
+ENV['OTEL_TRACES_EXPORTER'] = 'zipkin'
+
+# if you want a custom endpoint
+# ENV['OTEL_EXPORTER_ZIPKIN_ENDPOINT'] = 'http://localhost:1234'
+```
+
+## `curl` the app again
+
+```bash
+curl http://localhost:9292
+```
+
+and query your zipkin UI, you should see the traces there
