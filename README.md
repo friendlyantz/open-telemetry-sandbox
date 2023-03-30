@@ -1,3 +1,10 @@
+This is my sandbox to test and learn [OpenTelemetry(OT)](<https://opentelemetry.io>) within Ruby ecosystem.
+- [x] I start with elementary Rack app and add OpenTelemetry instrumentation to it.
+- [x] Then spicy it up with Zipkin as a tracing backend.
+- [ ] Next, I will dive into misc OT concepts such as Span, SpanContext, etc.
+- [ ] Then, may be, I will try to add OT instrumentation to a Sinatra app.
+- [ ] Then, I will try to add OT instrumentation to a Rails app.
+
 # Steps
 
 ## Add OpenTelemetry instrumentation to the app (Rack+RackUp as an example here) - will output OT to the console
