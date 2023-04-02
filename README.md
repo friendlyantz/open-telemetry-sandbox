@@ -7,6 +7,9 @@ This is my sandbox to test and learn [OpenTelemetry(OTM)](<https://opentelemetry
 - [x] Then spice it up with Zipkin as a tracing backend(Java☕️)
 - [x] May be spice it up with [Jeeger](https://github.com/jaegertracing/jaeger) as an alternative tracing backend(it is in GO, and fresher)
 - [ ] Next, I will dive into misc OTM concepts such as Span, SpanContext, etc.
+  - [x] Manual instrumentation(within ruby/rack)
+  - [ ] Automatic instrumentation with non-ruby tech
+  - [ ] Manual instrumentation(within non ruby/rack)
 - [ ] Then, may be, I will try to add OTM instrumentation to a Sinatra app.
 - [ ] Then, I will try to add OTM instrumentation to a Rails app.
 
