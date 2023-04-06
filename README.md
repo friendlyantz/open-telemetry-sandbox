@@ -187,7 +187,7 @@ ENV['OTEL_TRACES_EXPORTER'] = 'jaeger'
 curl http://localhost:9292
 ```
 
-hunt it down via Jaeger UI like a boss
+hunt it down via Jaeger UI like a boss (<http://localhost:16686/>)
 
 ![image](https://user-images.githubusercontent.com/70934030/228813650-cb7524a0-2321-43c8-a02d-f11459356f89.png)
 
