@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    colorize (0.8.1)
     google-protobuf (3.22.2-arm64-darwin)
     googleapis-common-protos-types (1.5.0)
       google-protobuf (~> 3.14)
@@ -52,6 +53,7 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  colorize (~> 0.8.1)
   opentelemetry-exporter-jaeger
   opentelemetry-exporter-otlp
   opentelemetry-exporter-zipkin

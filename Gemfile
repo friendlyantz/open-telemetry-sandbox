@@ -15,3 +15,5 @@ gem 'opentelemetry-instrumentation-rack'
 
 gem 'opentelemetry-exporter-zipkin'
 gem 'opentelemetry-exporter-jaeger'
+
+gem "colorize", "~> 0.8.1"
