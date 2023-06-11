@@ -3,6 +3,7 @@ require 'opentelemetry/exporter/otlp'
 require 'opentelemetry/instrumentation/rack'
 require 'opentelemetry/exporter/zipkin'
 require 'opentelemetry/exporter/jaeger'
+require 'opentelemetry/exporter/zipkin'
 require 'rack'
 
 $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
