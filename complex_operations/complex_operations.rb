@@ -24,7 +24,7 @@ MyAppTracer.in_span("complex processes parent span") do |parent_span|
   MyAppTracer.in_span("child span 2 - DB query") do |span|
     require 'sqlite3'
 
-    db = SQLite3::Database.new "test.db"
+    db = SQLite3::Database.new File.join(__dir__,"test.db")
     db.execute "CREATE TABLE IF NOT EXISTS numbers (number INTEGER)"
     db.execute "DELETE FROM numbers"
     db.execute "BEGIN TRANSACTION"  
