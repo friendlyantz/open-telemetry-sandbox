@@ -17,3 +17,11 @@ gem 'opentelemetry-exporter-zipkin'
 gem 'opentelemetry-exporter-jaeger'
 
 gem "colorize", "~> 0.8.1"
+
+gem "sidekiq", "~> 7.1"
+
+gem "sqlite3", "~> 1.6"
+
+gem "pry", "~> 0.14.2"
+
+gem "opentelemetry-instrumentation-sidekiq", "~> 0.23.0"
