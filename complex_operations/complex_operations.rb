@@ -35,25 +35,17 @@ MyAppTracer.in_span("complex processes parent span") do |parent_span|
     puts 'Rejoice, good folk! The search in the database be finished!'.yellow
   end
 
-  MyAppTracer.in_span("child span 3 - Duck Duck Go it!") do |span|
+  MyAppTracer.in_span("child span 3 - WEB request") do |span|
     Net::HTTP.get('duckduckgo.com', '/') # 38ms unless you download something slow
-    puts "Behold, the web request is fulfilled, as if by sorcery!".blue
+    puts "Behold, the web request is fulfilled, as if by sorcery!".light_blue
   end
 
   MyAppTracer.in_span("child span 4 - background job in Sidekiq") do |span|
     require File.join(__dir__,'job.rb')
-    # Slow SQLite example # aim for 4s query
-    CoolJob.perform
-  end
-
-  MyAppTracer.in_span("child span 5 - bing") do |span|
-    # Slow SQLite example # aim for 4s query
-    Net::HTTP.get('bing.com', '/') # 38ms unless you download something slow
-    puts 'dummy DB'
+    CoolJob.perform_async('super_hard')
   end
 
   puts 'The deed is done!'.green
-    # end a OpenTelemetry sub-span
 end
 
 sleep 5 # delay for Jaegerr to catch up
