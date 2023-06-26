@@ -1,5 +1,6 @@
-require 'sidekiq'
 require 'colorize'
+
+require 'sidekiq'
 
 require 'opentelemetry/sdk'
 require 'opentelemetry/exporter/jaeger'
@@ -23,20 +24,11 @@ end
 class CoolJob
   include Sidekiq::Worker
 
-  def perform(complexity)
-    case complexity
-    when "super_hard"
-      puts "I'm doing something super hard!".red
-      1_000_000.times { |i| OpenSSL::Digest::MD5.hexdigest(complexity + i.to_s) } # Very Sophisticated Data Analysis!
-      raise "Overworked Error!" if rand(3).zero?
-      sleep 1.01
-      puts "I've finished doing something super hard!".red
-    when "hard"
-      100_000.times { |i| OpenSSL::Digest::MD5.hexdigest(complexity + i.to_s) }
-      puts "I'm doing something hard!".yellow
-    else
-      10_000.times { |i| OpenSSL::Digest::MD5.hexdigest(complexity + i.to_s) }
-      puts "I'm doing something simple!".green
-    end
+  def perform(*args)
+    puts "I'm doing something super hard!".light_red
+    sleep 2.01 # sleep before error for Jaeger to catch up
+    raise 'Overworked Error!' if rand(3).zero?
+
+    puts "I've finished doing something super hard!".red
   end
 end

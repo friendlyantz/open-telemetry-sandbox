@@ -6,6 +6,7 @@ GEM
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     google-protobuf (3.22.2-arm64-darwin)
+    google-protobuf (3.22.2-x86_64-linux)
     googleapis-common-protos-types (1.5.0)
       google-protobuf (~> 3.14)
     method_source (1.0.0)
@@ -65,11 +66,13 @@ GEM
       rack (>= 2.2.4)
       redis-client (>= 0.14.0)
     sqlite3 (1.6.3-arm64-darwin)
+    sqlite3 (1.6.3-x86_64-linux)
     thrift (0.18.1)
     webrick (1.8.1)
 
 PLATFORMS
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   colorize (~> 0.8.1)
