@@ -1,4 +1,4 @@
-
+ 
 ## Action Plan
 
 - Part I
@@ -84,8 +84,8 @@ A bit confusing and constantly evolving, but some of the basic concepts are:
 
 ##  [Specification](https://opentelemetry.io/docs/concepts/components/#specification) 
 
-- Semantic Convention
-- Resources
+- [Semantic Convention](https://opentelemetry.io/docs/concepts/semantic-conventions/)
+- [Resources](https://opentelemetry.io/docs/instrumentation/js/resources/)
 
 ---
 
@@ -104,42 +104,50 @@ i.e. [Ruby Instrumentation Repo](https://github.com/open-telemetry/opentelemetry
 
 ---
 
-### Basic:
+### Basic Single Span:
+
+```sh
+bundle
+ruby basic_single_span/basic_operation.rb
+```
+---
+
+## Complex Multi Span
+### Spin up 'Jaeger'
+```sh
+docker run -d --name jaeger \            
+  -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
+  -p 5775:5775/udp \
+  -p 6831:6831/udp \
+  -p 6832:6832/udp \
+  -p 5778:5778 \
+  -p 16686:16686 \
+  -p 14268:14268 \
+  -p 14250:14250 \
+  -p 9411:9411 \
+  jaegertracing/all-in-one
+```
 
 ---
 
-## Complex  
+## Spin up Sidekiq in a tab
+```sh
+# in one tab run a sidekiq job  (DO NOT forget ./ in front of the required filepath)
+sidekiq -r ./multi_span/job.rb
+# if this doesn't work you might need to spin up redis-server if it is not running already
+redis-server  
+```
 
+### Run demo script in another tab
+```
+ruby multi_span/complex_operations.rb 
+```
+and observe sidekiq
 
 ---
 
-
-## OpenTelemetry libraries
-### For starters we just needf SDK which will do the basics
-All you need is `opentelemetry/sdk` library to do the basics
-
-## Define where to output the telemetry data
-Open Telemetry Output can be to console, or to a collector (OTLP, Zipkin, Jager, etc)
-
-```ruby
-ENV['OTEL_TRACES_EXPORTER'] = 'console'
-```
-
-## Configure the OpenTelemetry SDK
-
-```ruby
-OpenTelemetry::SDK.configure do |c|
-  c.service_name = "BASIC SERVICE"
-end
-
-MyAppTracer = OpenTelemetry.tracer_provider.tracer('NAME_OF_YOUR_TRACER')
-
-MyAppTracer.in_span("name of the span") do |span|
-  # your code here
-end
-```
-
-
+### go to Jaeger UI
+http://localhost:16686
 
 ---
 
@@ -150,5 +158,5 @@ end
 ### Resources:
 1. https://opentelemetry.io/
 2. https://www.jaegertracing.io/ - backend for above (optional, you can use your own existing compatible provider, i.e DataDog, Splunk, etc)
-3. https://youtu.be/Txe4ji4EDUA - fantastic tutorial by NGNIX, which inspired this talk
-4. https://github.com/open-telemetry/opentelemetry-demo
+3. https://youtu.be/Txe4ji4EDUA - fantastic tutorial by NGNIX, which this talk is based on
+4. https://github.com/open-telemetry/opentelemetry-demo - official demo of a shopping app using various languages (mail service is in Ruby)
