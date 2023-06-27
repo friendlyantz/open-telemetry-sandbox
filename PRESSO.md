@@ -2,8 +2,9 @@
 ## Action Plan
 
 - Part I
-	1. "Open Telemetry" OS project
-	2. It's components
+	1. Observabitiy
+	2. "Open Telemetry" OS project
+	3. It's components
 - Part II - Demo:
 	1. Basic implementation with vanilla Ruby
 	2. Ruby with multiple gems
@@ -83,6 +84,9 @@ A bit confusing and constantly evolving, but some of the basic concepts are:
 
 ##  [Specification](https://opentelemetry.io/docs/concepts/components/#specification) 
 
+- Semantic Convention
+- Resources
+
 ---
 
 ## [Instrumentation, Language-specific API & SDK implementations](https://opentelemetry.io/docs/concepts/components/#language-specific-api--sdk-implementations)
@@ -140,7 +144,7 @@ end
 ---
 
 # Summary
-
+- [ ] challenge Anton to match a talk
 ---
 
 ### Resources:
