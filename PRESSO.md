@@ -45,6 +45,17 @@ OpenTelemetry is:
 It is extensible framework which supports [multiple languages ](https://opentelemetry.io/docs/instrumentation/#status-and-releases)and open-source data standard like you see in Prometheus, Jaeger as well as commercial vendors like DataDog, Splunk, etc
 
 ---
+
+![image](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/e63bbdec-455f-4609-a2a5-9ab04fc37e78)
+
+---
+
+spans
+
+![image](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/6434babf-bd37-4f35-8a1b-45e6b74090c5)
+
+---
+
 OT [Components](https://opentelemetry.io/docs/concepts/components/)
 ### Specification
 
