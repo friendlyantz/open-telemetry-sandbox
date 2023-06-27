@@ -24,7 +24,7 @@ end
 class CoolJob
   include Sidekiq::Worker
 
-  def perform(*args)
+  def perform
     puts "I'm doing something super hard!".light_red
     sleep 2.01 # sleep before error for Jaeger to catch up
     raise 'Overworked Error!' if rand(3).zero?

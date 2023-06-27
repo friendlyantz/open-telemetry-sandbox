@@ -1,6 +1,5 @@
 require 'colorize'
 
-require 'net/http'
 require 'opentelemetry/sdk'
 require 'opentelemetry/exporter/jaeger'
 
@@ -34,14 +33,15 @@ MyAppTracer.in_span("complex processes parent span") do |parent_span|
   end
 
   MyAppTracer.in_span("child span 3 - WEB request") do |span|
-    Net::HTTP.get('duckduckgo.com', '/') # 38ms unless you download something slow
+    require 'net/http'
+    Net::HTTP.get('duckduckgo.com', '/')
     puts "Web request is fulfilled, as if by sorcery!".light_blue
   end
 
   MyAppTracer.in_span("child span 4 - background job in Sidekiq") do |span|
     require File.join(__dir__,'job.rb')
     CoolJob.perform_async
-    puts "Sidekiq hath received the task, and shall complete it in due time!".light_red
+    puts "Sidekiq has received the task, and shall complete it in due time!".light_red
   end
 
   puts 'The deed is done!'.green
