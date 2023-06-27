@@ -9,6 +9,7 @@
 	- [ ] Basic vanilla Ruby
 	- [ ] Ruby with multiple gems
 	- [ ] Multi-language
+
 ---
 
 ## About me
@@ -17,8 +18,8 @@ class Friendlyantz
   def initialize
     @name = 'Anton Panteleev'
     @dob = '1987-04-01T04:15:00'
-    @title = 'Engineer, Software Stuntman aspiring Dev Advocate'
-   @hobbies = [ 'Kitesurfing', 
+    @title = 'Engineer, Software Stuntman and aspiring Dev Advocate, Saul Goodman of Tech'
+    @hobbies = [ 'Kitesurfing', 
                  'Camping',
                  'Art Photography',
                  'Motorcycling',
@@ -35,9 +36,9 @@ https://friendlyantz.me/
 
 
 
-## What is Observability? and why I decided to do this talk
+## A bit of Observability theory and why I decided to do this talk
 
-- [ ] : TikTok doesn't use tests
+- [ ] As a TDD fanboy, and a person who watch too much of David Farley, I was surprised to discover that TikTok doesn't use tests ? 
 
 Observability lets us understand a system from the outside, by letting us ask questions about that system without knowing its inner workings. Furthermore, it allows us to easily troubleshoot and handle novel problems (i.e. “unknown unknowns”), and helps us answer the question, “Why is this happening?”
 
@@ -45,11 +46,10 @@ In order to be able to ask those questions of a system, the application must be 
 
 OpenTelemetry is the mechanism by which application code is instrumented, to help make a system observable.
 
-> Telemetry refers to data emitted from a system, about its behavior. The data can come in the form of traces, metrics, and logs.
-
 ---
 
-### Understanding Distributed Tracing 
+### Understanding Distributed Tracing
+- [ ] Tender Driven Development
 
 ---
 
@@ -64,22 +64,55 @@ spans
 OpenTelemetry is:
  - a collection of tools, APIs, and SDKs. 
  - Use it to instrument, generate, collect, and export telemetry data (metrics, logs, and traces) to help you analyze your software’s performance and behavior
- 
- - in an open-source, vendor agnostic way
- - It is part on [CNCF](https://www.cncf.io/projects/opentelemetry/) since 2019 and 2nd most active project after Kubernetes. Also a lot of high-cal contributors
+
+ - open-source, vendor agnostic
+ - merger of openCensus and openTracing project
+ - It is part on [CNCF](https://www.cncf.io/projects/opentelemetry/) since 2019 and 2nd most active project after Kubernetes. 
+ - a lot of high-cal contributors
 
 It is extensible framework which supports [multiple languages ](https://opentelemetry.io/docs/instrumentation/#status-and-releases)and open-source data standard like you see in Prometheus, Jaeger as well as commercial vendors like DataDog, Splunk, etc
 
 ---
 
-Architecture WIP
 
-![image](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/e63bbdec-455f-4609-a2a5-9ab04fc37e78)
+
 
 ---
 
-OT [Components](https://opentelemetry.io/docs/concepts/components/)
-### Specification
+## OpenTelemetry [Components](https://opentelemetry.io/docs/concepts/components/) - very confusing and constantly evolving, but bare with meh
+1. [Specification](https://opentelemetry.io/docs/concepts/components/#specification) basic for the below items, outlines requirements
+2. [Collector](https://opentelemetry.io/docs/concepts/components/#collector)
+3. [Language-specific Instrumentation, API & SDK implementations](https://opentelemetry.io/docs/concepts/components/#language-specific-api--sdk-)
+4. etc. 
+
+---
+
+##  [Specification](https://opentelemetry.io/docs/concepts/components/#specification) 
+
+Describes the cross-language requirements and expectations for all implementations. Beyond a definition of terms, the specification defines the following:
+
+- **API:** Defines data types and operations for generating and correlating tracing, metrics, and logging data.
+- **SDK:** Defines requirements for a language-specific implementation of the API. Configuration, data processing, and exporting concepts are also defined here.
+- **Data:** Defines the OpenTelemetry Protocol (OTLP) and vendor-agnostic [semantic conventions](https://opentelemetry.io/docs/concepts/semantic-conventions/) that a telemetry backend can provide support for.
+
+#### Why you need this?? 
+- so if you adhere to this spec you can built more comprehensive insights and get some insights into other endpoints or closed source services that are compatible with OT standard (and most are)
+- you have Data portability and quickly change vendors
+
+---
+
+## [Instrumentation, Language-specific API & SDK implementations](https://opentelemetry.io/docs/concepts/components/#language-specific-api--sdk-implementations)
+
+OpenTelemetry also has language SDKs that let you use the OpenTelemetry API to generate telemetry data with your language of choice and export that data to a preferred backend. These SDKs also let you incorporate instrumentation libraries for common libraries and frameworks that you can use to connect to manual instrumentation in your application.
+
+[Ruby Instrumentation Repo](https://github.com/open-telemetry/opentelemetry-ruby-contrib/tree/main/instrumentation)
+
+---
+
+
+---
+
+# Demo
 
 ---
 
@@ -87,10 +120,7 @@ OT [Components](https://opentelemetry.io/docs/concepts/components/)
 
 ---
 
-Complex 
-
-
-
+## Complex  
 
 
 ---
