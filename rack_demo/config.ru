@@ -1,15 +1,16 @@
 require 'opentelemetry/sdk'
-require 'opentelemetry/exporter/otlp'
-require 'opentelemetry/instrumentation/rack'
-require 'opentelemetry/exporter/zipkin'
-require 'opentelemetry/exporter/jaeger'
-require 'opentelemetry/exporter/zipkin'
+
 require 'rack'
+require 'opentelemetry/instrumentation/rack'
+
+# require 'opentelemetry/exporter/zipkin'
+# require 'opentelemetry/exporter/otlp'
+require 'opentelemetry/exporter/jaeger'
 
 $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 require 'rackroll'
 
-use Rack::Reloader # will reload 'requirred' files on each request, but won't apply to this config changes
+use Rack::Reloader # will reload 'required' files on each request, but won't apply to this config changes
 
 ENV['OTEL_TRACES_EXPORTER'] = 'jaeger'
 
