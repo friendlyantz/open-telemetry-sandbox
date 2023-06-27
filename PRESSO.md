@@ -1,3 +1,4 @@
+
 ## Action Plan
 
 - Part I
@@ -70,6 +71,9 @@ OpenTelemetry is:
 
 ## OpenTelemetry [Components](https://opentelemetry.io/docs/concepts/components/) 
 A bit confusing and constantly evolving, but some of the basic concepts are:
+
+![image](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/8f9c3e48-ee8b-4094-aeb1-d812a51afb4d)
+
 - [Specification](https://opentelemetry.io/docs/concepts/components/#specification) 
 - Implementations
 	1. [Language-specific Instrumentation, API & SDK implementations](https://opentelemetry.io/docs/concepts/components/#language-specific-api--sdk-implementations)
