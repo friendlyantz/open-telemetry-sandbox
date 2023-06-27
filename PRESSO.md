@@ -109,6 +109,11 @@ OpenTelemetry also has language SDKs that let you use the OpenTelemetry API to g
 
 ---
 
+## Collector
+
+
+![image](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/a0397a17-041a-4a1d-acb1-f98f35c18d49)
+
 
 ---
 
