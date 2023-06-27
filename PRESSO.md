@@ -70,7 +70,7 @@ OpenTelemetry is:
 
 ---
 
-## OpenTelemetry [Components](https://opentelemetry.io/docs/concepts/components/) 
+## OT [Components](https://opentelemetry.io/docs/concepts/components/) 
 A bit confusing and constantly evolving, but some of the basic concepts are:
 
 ![image](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/8f9c3e48-ee8b-4094-aeb1-d812a51afb4d)
@@ -84,6 +84,8 @@ A bit confusing and constantly evolving, but some of the basic concepts are:
 
 ##  [Specification](https://opentelemetry.io/docs/concepts/components/#specification) 
 
+- Cross-language requirements and expectations 
+- API, SDK and Data Requirements
 - [Semantic Convention](https://opentelemetry.io/docs/concepts/semantic-conventions/)
 - [Resources](https://opentelemetry.io/docs/instrumentation/js/resources/)
 
@@ -91,7 +93,8 @@ A bit confusing and constantly evolving, but some of the basic concepts are:
 
 ## [Instrumentation, Language-specific API & SDK implementations](https://opentelemetry.io/docs/concepts/components/#language-specific-api--sdk-implementations)
 
-i.e. [Ruby Instrumentation Repo](https://github.com/open-telemetry/opentelemetry-ruby-contrib/tree/main/instrumentation)
+- can be Automatic and Manual
+- [Ruby Instrumentation Repo](https://github.com/open-telemetry/opentelemetry-ruby-contrib/tree/main/instrumentation)
 
 ---
 
@@ -143,7 +146,7 @@ redis-server
 ruby multi_span/complex_operations.rb 
 ```
 and observe sidekiq
-
+ 
 ---
 
 ### go to Jaeger UI
@@ -152,6 +155,10 @@ http://localhost:16686
 ---
 
 # Summary
+- [ ] OT can be Automatic and Manual
+- [ ] Future Adoption
+- [ ] Still in active developments
+- [ ] Traces are implemented, Metrics & Logs yet to come
 - [ ] challenge Anton to match a talk
 ---
 
