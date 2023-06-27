@@ -33,6 +33,32 @@ https://friendlyantz.me/
 
 ---
 
+
+
+## What is Observability? and why I decided to do this talk
+
+- [ ] : TikTok doesn't use tests
+
+Observability lets us understand a system from the outside, by letting us ask questions about that system without knowing its inner workings. Furthermore, it allows us to easily troubleshoot and handle novel problems (i.e. “unknown unknowns”), and helps us answer the question, “Why is this happening?”
+
+In order to be able to ask those questions of a system, the application must be properly instrumented. That is, the application code must emit signals such as traces, metrics, and logs. An application is properly instrumented when developers don’t need to add more instrumentation to troubleshoot an issue, because they have all of the information they need.
+
+OpenTelemetry is the mechanism by which application code is instrumented, to help make a system observable.
+
+> Telemetry refers to data emitted from a system, about its behavior. The data can come in the form of traces, metrics, and logs.
+
+---
+
+### Understanding Distributed Tracing 
+
+---
+
+spans
+
+![image](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/6434babf-bd37-4f35-8a1b-45e6b74090c5)
+
+---
+
 # What is Telemetry Theory
 
 OpenTelemetry is:
@@ -46,13 +72,9 @@ It is extensible framework which supports [multiple languages ](https://opentele
 
 ---
 
+Architecture WIP
+
 ![image](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/e63bbdec-455f-4609-a2a5-9ab04fc37e78)
-
----
-
-spans
-
-![image](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/6434babf-bd37-4f35-8a1b-45e6b74090c5)
 
 ---
 
