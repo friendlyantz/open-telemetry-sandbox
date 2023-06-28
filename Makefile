@@ -28,6 +28,14 @@ jaeger-setup:
 jaeger-web-open:
 	open http://localhost:16686
 
+.PHONY: rack-demo
+rack-demo:
+	rackup --include rack_demo/lib rack_demo/config.ru
+
+.PHONY: rack-demo-open
+rack-demo-open:
+	open http://127.0.0.1:9292/
+
 .PHONY: usage
 usage:
 	@echo
@@ -37,4 +45,6 @@ usage:
 	@echo "${YELLOW}make jaeger-setup${NC}"
 	@echo
 	@echo "${YELLOW}make jaeger-web-open${NC}"
+	@echo "${YELLOW}make rack-demo${NC}"
+	@echo "${YELLOW}make rack-demo-open${NC}"
 	@echo
