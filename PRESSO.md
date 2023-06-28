@@ -33,10 +33,9 @@ https://friendlyantz.me/
 
 ---
 
-## Observability
-
 A bit of theory and why I decided to do this talk
 
+![observability-so-hot](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/10ef82f7-0814-46ce-a8df-851391534d51)
 
 ---
 
@@ -105,6 +104,9 @@ A bit confusing and constantly evolving, but some of the basic concepts are:
 
 # Demo
 
+![listen](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/e66cc1da-5951-4747-b0d3-b61d329ff0a2)
+
+
 ---
 
 ### Basic Single Span:
@@ -135,8 +137,9 @@ docker run -d --name jaeger \
 
 ## Spin up Sidekiq in a tab
 ```sh
-# in one tab run a sidekiq job  (DO NOT forget ./ in front of the required filepath)
+# DO NOT forget ./ in front of the required filepath)
 sidekiq -r ./multi_span/job.rb
+
 # if this doesn't work you might need to spin up redis-server if it is not running already
 redis-server  
 ```
@@ -145,12 +148,18 @@ redis-server
 ```
 ruby multi_span/complex_operations.rb 
 ```
-and observe sidekiq
+and observe Sidekiq tab
  
 ---
 
-### go to Jaeger UI
+### go to Jaeger UI to observe observabity observing our app 
 http://localhost:16686
+
+---
+
+# Summary
+
+![yes](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/2b19158e-55af-4cce-b4bb-d1416c9d5a11)
 
 ---
 
