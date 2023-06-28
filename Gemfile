@@ -5,6 +5,7 @@ source "https://rubygems.org"
 # gem "rails"
 
 gem "rack", "~> 3.0"
+gem "rack-session", "~> 2.0"
 
 gem "rackup", "~> 2.1"
 
@@ -25,3 +26,4 @@ gem "sqlite3", "~> 1.6"
 gem "pry", "~> 0.14.2"
 
 gem "opentelemetry-instrumentation-sidekiq", "~> 0.23.0"
+
