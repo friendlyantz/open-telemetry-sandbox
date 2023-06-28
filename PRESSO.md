@@ -40,8 +40,8 @@ A bit of theory and why I decided to do this talk
 ---
 
 ### Distributed Tracing
-- [ ] Signals are not very useful when they are isolated
 - [ ] Tender Driven Development
+- [ ] Signals are not very useful when they are isolated
 - [ ] Context Propagation
 
 ---
@@ -90,14 +90,13 @@ A bit confusing and constantly evolving, but some of the basic concepts are:
 
 ---
 
-## [Instrumentation, Language-specific API & SDK implementations](https://opentelemetry.io/docs/concepts/components/#language-specific-api--sdk-implementations)
+## [Instrumentation, Language-specific API & SDK implementations](https://opentelemetry.io/docs/instrumentation/#status-and-releases)
 
-- can be Automatic and Manual
+- can be Manual and/or Automatic
 - [Ruby Instrumentation Repo](https://github.com/open-telemetry/opentelemetry-ruby-contrib/tree/main/instrumentation)
 
 ---
 
-## Collector
 ![image](https://github.com/friendlyantz/open-telemetry-sandbox/assets/70934030/a0397a17-041a-4a1d-acb1-f98f35c18d49)
 
 ---
@@ -166,7 +165,7 @@ http://localhost:16686
 # Summary
 - [ ] OT can be Automatic and Manual
 - [ ] Future Adoption
-- [ ] Still in active developments
+- [ ] Still in active development
 - [ ] Traces are implemented, Metrics & Logs yet to come
 - [ ] challenge Anton to match a talk
 ---
