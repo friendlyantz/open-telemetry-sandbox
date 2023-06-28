@@ -1,2 +1,4 @@
 *.db
 *.json
+
+.session.key

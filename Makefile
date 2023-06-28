@@ -36,6 +36,14 @@ rack-demo:
 rack-demo-open:
 	open http://127.0.0.1:9292/
 
+.PHONY: sidekiq-web
+sidekiq-web:
+	bundle exec rackup multi_span/sidekiq_web_config.ru -p 9393
+
+.PHONY: sidekiq-web-open
+sidekiq-web-open:
+	open http://localhost:9393
+
 .PHONY: usage
 usage:
 	@echo
@@ -47,4 +55,6 @@ usage:
 	@echo "${YELLOW}make jaeger-web-open${NC}"
 	@echo "${YELLOW}make rack-demo${NC}"
 	@echo "${YELLOW}make rack-demo-open${NC}"
+	@echo "${YELLOW}make sidekiq-web${NC}"
+	@echo "${YELLOW}make sidekiq-web-open${NC}"
 	@echo
