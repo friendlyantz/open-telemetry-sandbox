@@ -10,7 +10,9 @@ ENV['OTEL_TRACES_EXPORTER'] = 'jaeger'
 
 OpenTelemetry::SDK.configure do |c|
   c.service_name = 'SIDEKIQ SERVICE'
-  c.use 'OpenTelemetry::Instrumentation::Sidekiq'
+  c.use 'OpenTelemetry::Instrumentation::Sidekiq', {
+    propagation_style:  :child
+  }
 end
 
 Sidekiq.configure_client do |config|
