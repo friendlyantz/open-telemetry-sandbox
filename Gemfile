@@ -27,3 +27,5 @@ gem "pry", "~> 0.14.2"
 
 gem "opentelemetry-instrumentation-sidekiq", "~> 0.23.0"
 
+
+gem "ruby-progressbar", "~> 1.13"
