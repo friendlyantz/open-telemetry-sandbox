@@ -12,7 +12,7 @@ OpenTelemetry::SDK.configure do |c|
   c.service_name = 'BIG O Service'
 end
 
-MyAppTracer = OpenTelemetry.tracer_provider.tracer('o(N) vs o(N^2)')
+MyAppTracer = OpenTelemetry.tracer_provider.tracer('Big O comparator tracer')
 
 def binary_search(array, key)
   front = 0
