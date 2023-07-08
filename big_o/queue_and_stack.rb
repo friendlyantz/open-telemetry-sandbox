@@ -32,10 +32,10 @@ class Queue
   end
 
   def enqueue_multiple(array)
-    array.each { |value| enqueue(value) }
+    array.each { |value| push(value) }
   end
 
-  def enqueue(value)
+  def push(value)
     new_node = DoublyLinkedNode.new(value)
     if @head.nil?
       @head = new_node
@@ -71,11 +71,11 @@ class Stack
     @head = nil
   end
 
-  def enqueue_multiple(array)
-    array.each { |value| enqueue(value) }
+  def push_multiple(array)
+    array.each { |value| push(value) }
   end
 
-  def enqueue(value)
+  def push(value)
     new_node = DoublyLinkedNode.new(value)
     if @head.nil?
       @head = new_node
@@ -90,7 +90,7 @@ class Stack
     @head&.value
   end
 
-  def dequeue
+  def pop
     if @head.nil?
       nil
     else
@@ -117,7 +117,7 @@ MyAppTracer.in_span('complex processes parent span') do |_parent_span|
   end
 
   MyAppTracer.in_span('stack') do |span|
-    Stack.new.enqueue_multiple(array)
+    Stack.new.push_multiple(array)
     puts 'Stacking is done'.yellow
   end
 
