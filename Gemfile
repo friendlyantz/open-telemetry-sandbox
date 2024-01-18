@@ -4,10 +4,10 @@ source "https://rubygems.org"
 
 # gem "rails"
 
-gem "rack", "~> 3.0"
-gem "rack-session", "~> 2.0"
+gem "rack"
+gem "rack-session"
 
-gem "rackup", "~> 2.1"
+gem "rackup"
 
 gem 'opentelemetry-sdk'
 gem 'opentelemetry-exporter-otlp'
@@ -17,15 +17,15 @@ gem 'opentelemetry-instrumentation-rack'
 gem 'opentelemetry-exporter-zipkin'
 gem 'opentelemetry-exporter-jaeger'
 
-gem "colorize", "~> 0.8.1"
+gem "colorize"
 
-gem "sidekiq", "~> 7.1"
+gem "sidekiq"
 
-gem "sqlite3", "~> 1.6"
+gem "sqlite3"
 
-gem "pry", "~> 0.14.2"
+gem "pry"
 
-gem "opentelemetry-instrumentation-sidekiq", "~> 0.23.0"
+gem "opentelemetry-instrumentation-sidekiq"
 
 
-gem "ruby-progressbar", "~> 1.13"
+gem "ruby-progressbar"
