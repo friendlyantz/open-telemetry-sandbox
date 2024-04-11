@@ -8,6 +8,9 @@ ENV['OTEL_TRACES_EXPORTER'] = 'jaeger'
 
 OpenTelemetry::SDK.configure do |c|
   c.service_name = "COMPLEX SERVICE"
+  c.use(
+    "OpenTelemetry::Instrumentation::Sidekiq" => { propagation_style: :child, span_naming: :job_class },
+  )
 end
 
 MyAppTracer = OpenTelemetry.tracer_provider.tracer('LadidaTracer')
@@ -24,7 +27,7 @@ MyAppTracer.in_span("complex processes parent span") do |parent_span|
     db = SQLite3::Database.new File.join(__dir__,"test.db")
     db.execute "CREATE TABLE IF NOT EXISTS numbers (number INTEGER)"
     db.execute "DELETE FROM numbers"
-    db.execute "BEGIN TRANSACTION"  
+    db.execute "BEGIN TRANSACTION"
     (0..300_000).each{|i| db.execute "INSERT INTO numbers VALUES (#{i})"}
     db.execute "COMMIT TRANSACTION"
     db.execute "SELECT COUNT(*) FROM numbers"
@@ -47,4 +50,4 @@ MyAppTracer.in_span("complex processes parent span") do |parent_span|
   puts 'The deed is done!'.green
 end
 
-sleep 1.01 # delay for Jaeger to catch up
+sleep 3 # delay for Jaeger to catch up

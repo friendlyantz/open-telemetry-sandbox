@@ -3,8 +3,8 @@ require 'colorize'
 require 'sidekiq'
 
 require 'opentelemetry/sdk'
-require 'opentelemetry/exporter/jaeger'
 require 'opentelemetry/instrumentation/sidekiq'
+require 'opentelemetry/exporter/jaeger'
 
 ENV['OTEL_TRACES_EXPORTER'] = 'jaeger'
 
@@ -34,3 +34,5 @@ class CoolJob
     puts "I've finished doing something super hard!".red
   end
 end
+
+sleep 2

@@ -14,8 +14,8 @@ gem 'opentelemetry-exporter-otlp'
 # gem 'opentelemetry-instrumentation-all'
 gem 'opentelemetry-instrumentation-rack'
 
-gem 'opentelemetry-exporter-zipkin'
 gem 'opentelemetry-exporter-jaeger'
+# gem 'opentelemetry-exporter-zipkin'
 
 gem "colorize"
 
@@ -26,6 +26,7 @@ gem "sqlite3"
 gem "pry"
 
 gem "opentelemetry-instrumentation-sidekiq"
-
+# gem "opentelemetry-propagator-jaeger"
+gem "opentelemetry-propagator-b3"
 
 gem "ruby-progressbar"
